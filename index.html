@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechBlog</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">TechBlog</div>
+            <button class="theme-toggle">🌙</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="filters">
+            <input type="text" class="search-input" placeholder="Search blogs...">
+            <select id="categoryFilter">
+                <option value="">All Categories</option>
+                <option value="web">Web Development</option>
+                <option value="ai">AI & ML</option>
+                <option value="cloud">Cloud Computing</option>
+            </select>
+            <select id="authorFilter">
+                <option value="">All Authors</option>
+                <option value="john">John Doe</option>
+                <option value="jane">Jane Smith</option>
+            </select>
+        </div>
+
+        <div class="blog-grid" id="blogGrid">
+            <!-- Blogs will be dynamically loaded here -->
+        </div>
+    </main>
+
+    <div class="modal" id="blogModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="scripts/main.js" defer></script>
+</body>
+</html>
