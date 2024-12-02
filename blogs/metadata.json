@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "title": "Getting Started with Modern Web Development",
+        "author": "John Doe",
+        "category": "web",
+        "date": "2024-02-15",
+        "image": "assets/images/web-development.jpg",
+        "preview": "Learn the essential tools and technologies for modern web development...",
+        "filename": "blog1.md"
+    },
+    {
+        "id": 2,
+        "title": "Introduction to Machine Learning",
+        "author": "Jane Smith",
+        "category": "ai",
+        "date": "2024-02-20",
+        "image": "assets/images/machine-learning.jpg",
+        "preview": "Discover the basics of machine learning and its applications...",
+        "filename": "blog2.md"
+    }
+]
