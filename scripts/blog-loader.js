@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const blogId = params.get('id');
 
     if (!blogId) {
-        blogContent.innerHTML = "<p>Error: Blog ID not found in the URL.</p>";
+        blogContent.innerHTML = "<p class='error'>Error: Blog ID not found in the URL.</p>";
         return;
     }
 
@@ -17,9 +17,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         const blog = blogs.find(b => b.id === parseInt(blogId));
 
         if (!blog) {
-            blogContent.innerHTML = "<p>Error: Blog not found.</p>";
+            blogContent.innerHTML = "<p class='error'>Error: Blog not found.</p>";
             return;
         }
+
+        // Set the document title
+        document.title = `Blog - ${blog.title}`;
 
         // Fetch and parse the blog content (assumes markdown format)
         const blogResponse = await fetch(`blogs/${blog.filename}`);
@@ -29,15 +32,20 @@ document.addEventListener("DOMContentLoaded", async () => {
         const htmlContent = parseMarkdown(blogMarkdown);
 
         blogContent.innerHTML = `
-            <h1>${blog.title}</h1>
-            <div class="blog-meta">
-                <span>${blog.author}</span>
-                <span>${new Date(blog.date).toLocaleDateString()}</span>
+            <div class="blog-title-card">
+                <h1>${blog.title}</h1>
+            </div>
+            <div class="blog-meta" style="text-align: right;">
+                <div class="author">${blog.author}</div>
+                <div class="date">${new Date(blog.date).toLocaleDateString()}</div>
             </div>
             <div class="blog-body">${htmlContent}</div>
+            <div class="blog-footer">
+                
+            </div>
         `;
     } catch (error) {
-        blogContent.innerHTML = `<p>Error loading blog content: ${error.message}</p>`;
+        blogContent.innerHTML = `<p class='error'>Error loading blog content: ${error.message}</p>`;
     }
 });
 
@@ -49,11 +57,11 @@ function parseMarkdown(markdown) {
         { regex: /#### (.*$)/gim, replacement: '<h4>$1</h4>' },
         { regex: /### (.*$)/gim, replacement: '<h3>$1</h3>' },
         { regex: /## (.*$)/gim, replacement: '<h2>$1</h2>' },
-        { regex: /# (.*$)/gim, replacement: '<h1>$1</h1>' },
+        { regex: /# (.*$)/gim, replacement: '<h2>$1</h2>' },
         { regex: /\*\*(.*?)\*\*/gim, replacement: '<strong>$1</strong>' },
         { regex: /\*(.*?)\*/gim, replacement: '<em>$1</em>' },
-        { regex: /!\[(.*?)\]\((.*?)\)/gim, replacement: '<img alt="$1" src="$2" />' },
-        { regex: /\[(.*?)\]\((.*?)\)/gim, replacement: '<a href="$2">$1</a>' },
+        { regex: /!\[(.*?)\]\((.*?)\)/gim, replacement: '<img alt="$1" src="$2" class="blog-image" />' },
+        { regex: /\[(.*?)\]\((.*?)\)/gim, replacement: '<a href="$2" class="blog-link">$1</a>' },
         { regex: /\n$/gim, replacement: '<br />' },
     ];
 

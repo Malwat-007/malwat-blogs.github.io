@@ -1,0 +1,175 @@
+
+/* General Styles for Blog Page */
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Dark Theme Variables */
+body[data-theme="dark"] {
+    background-color: #1a1a1a;
+    color: #f5f5f5;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+    }
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back-button {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+}
+
+/* Main Blog Content */
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: #bababa;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.3s;
+}
+
+body[data-theme="dark"] main {
+    background: #2a2a2a;
+    color: #f5f5f5;
+}
+
+/* Blog Metadata */
+.blog-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+body[data-theme="dark"] .blog-meta {
+    color: #bbb;
+}
+
+.blog-meta span {
+    font-style: italic;
+}
+
+/* Blog Title */
+h1 {
+    font-size: 2.5rem;
+    color: #0077cc;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Blog Body */
+.blog-body {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: inherit;
+}
+
+.blog-body img {
+    max-width: 100%;
+    height: auto;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.blog-body a {
+    color: #0077cc;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.blog-body a:hover {
+    color: #005fa3;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 0rem;
+    margin-top: 1rem;
+    background-color: #f1f1f1;
+    font-size: 0.6rem;
+    color: #666;
+    border-top: 2px solid #ddd;
+}
+
+body[data-theme="dark"] footer {
+    background-color: #222;
+    color: #bbb;
+    border-top: 2px solid #444;
+}
+
+.blog-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.blog-title {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+.blog-meta {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.blog-body {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: inherit;
+}
+
+.blog-footer {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.social-share {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.share-link {
+    text-decoration: none;
+    color: var(--accent-color);
+    transition: color 0.3s;
+}
+
+.share-link:hover {
+    color: var(--primary-color);
+}
