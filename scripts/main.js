@@ -17,21 +17,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function renderBlogs(blogsToRender) {
         blogGrid.innerHTML = blogsToRender.map(blog => `
-            <article class="blog-card" data-id="${blog.id}">
-                <img src="${blog.image}" alt="${blog.title}" class="blog-image">
-                <div class="blog-content">
-                    <h2 class="blog-title">${blog.title}</h2>
-                    <div class="blog-meta">
-                        <span>${blog.author}</span>
-                        <span>${new Date(blog.date).toLocaleDateString()}</span>
-                    </div>
-                    <p class="blog-preview">${blog.preview}</p>
-                    <button class="read-more">Read More</button>
-                </div>
-            </article>
-        `).join('');
-        attachCardListeners(blogsToRender);
-    }
+            <a href="blog-page.html?id=${blog.id}" class="blog-link">
+                <article class="blog-card" data-id="${blog.id}">
+                    <img src="${blog.image}" alt="${blog.title}" class="blog-image">
+                    <div class="blog-content">
+                        <h2 class="blog-title">${blog.title}</h2>
+                        <div class="blog-meta">
+                           <span>${blog.author}</span>
+                            <span>${new Date(blog.date).toLocaleDateString()}</span>
+                        </div>
+                        <p class="blog-preview">${blog.preview}</p>
+                    </div>                
+                </article>
+                </a>
+            `).join('');
+            attachCardListeners(blogsToRender);
+        }
 
     function attachCardListeners(blogs) {
         document.querySelectorAll('.read-more').forEach(button => {
@@ -61,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
         themeToggle.textContent = isDark ? '🌙' : '☀️';
     }
-
     closeModal.addEventListener('click', hideModal);
     modal.addEventListener('click', (e) => {
         if (e.target === modal) hideModal();

@@ -6,6 +6,17 @@
     --card-bg: #ffffff;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
+    --heading-font: 'Arial Black', Gadget, sans-serif;
+    --heading-color: #e74c3c;
+    --blog-title-font: 'Georgia', serif;
+    --blog-title-color: #2980b9;
+}
+
+[data-theme="dark"] {
+    --background-color: #1a1a1a;
+    --text-color: #ffffff;
+    --card-bg: #2d2d2d;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -29,7 +40,7 @@ header {
     top: 0;
     z-index: 100;
     box-shadow: var(--shadow);
-}
+    }
 
 .header-content {
     max-width: 1200px;
@@ -39,9 +50,10 @@ header {
     align-items: center;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+.back-button {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
 }
 
 .theme-toggle {
@@ -57,6 +69,26 @@ main {
     max-width: 1200px;
     margin: 2rem auto;
     padding: 0 1rem;
+}
+
+/* General styles for hyperlinks */
+a {
+    text-decoration: none; /* Removes the underline */
+    color: inherit; /* Ensures the link inherits the text color */
+}
+
+/* Optional: Style the specific class for your blog links */
+.blog-link {
+    text-decoration: none;
+    color: inherit; /* Inherits color from parent or other styles */
+    display: block; /* Makes the entire article clickable */
+}
+
+/* Add hover effects if needed */
+.blog-link:hover {
+    text-decoration: none; /* No underline on hover */
+    color: inherit; /* Maintains same color */
+    cursor: pointer; /* Changes the cursor for user feedback */
 }
 
 .blog-grid {
@@ -89,6 +121,8 @@ main {
 }
 
 .blog-title {
+    font-family: var(--blog-title-font);
+    color: var(--blog-title-color);
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
     color: var(--primary-color);
@@ -182,9 +216,44 @@ select {
     }
 }
 
-[data-theme="dark"] {
-    --background-color: #1a1a1a;
-    --text-color: #ffffff;
-    --card-bg: #2d2d2d;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+/* Styles specific to blog-page.html */
+.blog-content {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.blog-content h1 {
+    font-family: var(--heading-font);
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+}
+
+.blog-meta {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.blog-body {
+    margin-top: 1rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 0 0.5rem;
+    }
 }
